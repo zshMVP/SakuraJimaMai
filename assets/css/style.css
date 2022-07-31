@@ -5,6 +5,10 @@
   font-display: swap;
   src: url(../fonts/motoyalmaru.ttf) format('truetype');
 }
+:root{
+  --accent-color: #FFDDE1;/*f5f5f7*/
+  --base-color: #1e2129;
+}
 html{
   min-width: 300px;
   overflow-x: hidden;
@@ -15,9 +19,45 @@ html{
 body{
   margin: 0;
   padding: 0;
-  color: #FFDDE1;
+  color: var(--accent-color);
   font-family: 'MotoyaLMaru', sans-serif;
-  background-color: #1e2129;/*#FFDDE1*/
+  background-color: var(--base-color);
+}
+#loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--base-color);
+  z-index: 999;
+  /*display: none;*/
+}
+h2{
+  font-family: sans-serif;
+  position: relative;
+  color: #ffffff00;
+  font-size: 14vw;
+  -webkit-text-stroke: 0.1vw var(--accent-color);
+  text-transform: uppercase;
+}
+h2::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  overflow: hidden;
+  animation: animate 8s linear infinite;
+}
+@keyframes animate {
+  0%,10%,100%{
+    width: 0;
+  }
+  70%,90%{
+    width: 100%;
+  }
 }
 a{
   cursor: pointer;
